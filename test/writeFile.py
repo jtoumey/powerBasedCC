@@ -1,3 +1,5 @@
+import time; #for file naming purposes
+
 OUTFILENAME = "outputTest.dat"
 
 class sample:
@@ -11,9 +13,10 @@ t0.time = 1.553
 t0.heartRate = 156
 t0.power = 185
 
+timestr = time.strftime("%Y-%m-%d-%H:%M")
 
 # Open the file and write the data to it
-outputFile = open(OUTFILENAME, 'w')
+outputFile = open(timestr, 'w')
 
 outputFile.write("# Sampled Data\n")
 outputFile.write("# time (sec)   heart rate (BPM)   power (Watt)\n")
