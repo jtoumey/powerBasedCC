@@ -24,7 +24,7 @@ for i in range(IDX):
    print("{}".format(sampleList[i].time))
 
 
-timestr = time.strftime("%Y-%m-%d-%H:%M")
+timestr = time.strftime("%Y-%m-%d-%H-%M")
 timestr += ".dat"
 
 outputFile = open(timestr, 'w')
