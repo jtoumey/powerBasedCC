@@ -3,3 +3,8 @@
 
 # Python bytecode
 *.pyc
+
+# Documentation
+*.log
+*.aux
+*.pdf
