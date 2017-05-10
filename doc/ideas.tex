@@ -3,6 +3,8 @@
 
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 \usepackage[margin = 1in]{geometry}
+\usepackage{tikz} %for the GUI
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -15,5 +17,46 @@
    \item Purchase Raspberry Pi Zero
    \item Purchase Nordic Semiconductor ANT+ chip
 \end{itemize}
+
+
+\section{Features}
+\begin{itemize}
+   \item CP curve
+   \begin{itemize}
+      \item Curve fit
+      \item Data file with best power for ever interval
+   \end{itemize}
+   \item W' implementation
+\end{itemize}
+
+
+
+\section{Screen Choice}
+On screen choice, I think it will decide how we interact with the device. Basically, whether or not it is a touch screen. An additional note: displays can interact with an RPi with either the GPIO pins or a serial display output. I think we need to use the serial display output to free up the GPIO for any other devices. The touch screen I have uses GPIO which would make this hard. 
+
+\begin{itemize}
+   \item Touch screen
+      \begin{itemize}
+         \item Resistive
+         \item Capacitive - \textbf{NO}
+      \end{itemize}
+   \item Just normal screen with buttons
+\end{itemize}
+
+\section{Graphical User Interface}
+
+\begin{figure}[!htb]
+\centering
+\begin{minipage}{.49\textwidth}
+\centering
+\input{GUI1.tikz}
+\caption{Home page}
+\end{minipage} \hfill
+\begin{minipage}{.49\textwidth}
+\centering
+\input{GUI2.tikz}
+\caption{CP}
+\end{minipage}
+\end{figure}
 
 \end{document}
