@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+\draw[very thick] (0,0) -- (4,0) -- (4,6) -- (0,6) -- (0,0);
+\draw (0,2) -- (4,2);
+\draw (2,0) -- (2,2);
+\draw [red,thick] plot [smooth] coordinates {(.5,5.5) (1,5.35) (1.5,5) (2,3) (3.5,2.8)};
+\draw[dashed,red] (1.5,5) -- (1.5, 2.5);
+\draw[dashed,yellow] (2,3) -- (2, 2.5);
+\draw[dashed,green] (2.5,2.8) -- (2.5, 2.5);
+\draw[dashed,blue] (3,2.8) -- (3, 2.5);
+\draw[blue, thick] (.5,2.5) -- (3.5,2.5) -- (3.5,5.5) -- (.5,5.5) -- (.5,2.5);
+\end{tikzpicture}
