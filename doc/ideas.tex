@@ -5,6 +5,7 @@
 \usepackage[margin = 1in]{geometry}
 \usepackage{tikz} %for the GUI
 \usepackage{graphicx}
+\usepackage{todonotes}
 
 \begin{document}
 
@@ -16,7 +17,7 @@
 \begin{itemize}
    \item Purchase Raspberry Pi Zero
    \item Purchase Nordic Semiconductor ANT+ chip
-   \item General steps
+   \item General steps\todo{any thoughts on this procedure?}
    \begin{enumerate}
       \item Purchase ANT+ Chip
       \item Work to adapt a C++ ANT+ library to receive data stream from peripheral devices
@@ -43,7 +44,7 @@
 On screen choice, I think it will decide how we interact with the device. Basically, whether or not it is a touch screen. An additional note: displays can interact with an RPi with either the GPIO pins or a serial display output. I think we need to use the serial display output to free up the GPIO for any other devices. The touch screen I have uses GPIO which would make this hard. 
 
 \begin{itemize}
-   \item Touch screen
+   \item Touch screen\todo{do you know if any units have touch screen and buttons? actually i think the pioneer head unit does.. maybe EDGE 510 as well? have to look how touch screen perform when sweat/wet}
       \begin{itemize}
          \item Resistive
          \item Capacitive - \textbf{NO}
