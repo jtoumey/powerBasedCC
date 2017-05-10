@@ -2,7 +2,7 @@
 
 
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
-\usepackage[margin = 1in]{geometry}
+%\usepackage[margin = 1in]{geometry}
 \usepackage{tikz} %for the GUI
 \usepackage{graphicx}
 \usepackage{todonotes}
@@ -16,13 +16,13 @@
 
 \begin{itemize}
    \item Purchase Raspberry Pi Zero
-   \item Purchase Nordic Semiconductor ANT+ chip
-   \item General steps\todo{any thoughts on this procedure?}
+   \item Purchase Nordic Semiconductor ANT+ chip\todo[color=green]{The more I think about it, the more I think we need to use the dongle...}
+   \item General steps\todo{any thoughts on this procedure?}\todo[color=green]{We should try to find ways to work simultaneously on different things to make things smoother. Fewer merges, etc.}
    \begin{enumerate}
       \item Purchase ANT+ Chip
       \item Work to adapt a C++ ANT+ library to receive data stream from peripheral devices
       \item Implement calculations and cycling features
-      \item Design the user interface using QT Creator
+      \item Design the user interface using QT Creator\todo[color=green]{QT looks like a pain. Evaluate other options, Tkinter?}
       \item Assemble the hardware  
    \end{enumerate}
 \end{itemize}
@@ -44,7 +44,7 @@
 On screen choice, I think it will decide how we interact with the device. Basically, whether or not it is a touch screen. An additional note: displays can interact with an RPi with either the GPIO pins or a serial display output. I think we need to use the serial display output to free up the GPIO for any other devices. The touch screen I have uses GPIO which would make this hard. 
 
 \begin{itemize}
-   \item Touch screen\todo{do you know if any units have touch screen and buttons? actually i think the pioneer head unit does.. maybe EDGE 510 as well? have to look how touch screen perform when sweat/wet}
+   \item Touch screen\todo{do you know if any units have touch screen and buttons? actually i think the pioneer head unit does.. maybe EDGE 510 as well? have to look how touch screen perform when sweat/wet}\todo[color=green]{I think 510 has both. I think we can do JUST touch screen. Resistive touch screen has no problem with sweat.}.
       \begin{itemize}
          \item Resistive
          \item Capacitive - \textbf{NO}
