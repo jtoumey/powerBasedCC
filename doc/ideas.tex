@@ -6,6 +6,13 @@
 \usepackage{tikz} %for the GUI
 \usepackage{graphicx}
 \usepackage{todonotes}
+\usepackage{listings}
+
+\lstdefinestyle{base}{
+  breaklines=true,
+  basicstyle=\ttfamily\color{black},
+  moredelim=**[is][\color{red}]{@}{@},
+}
 
 \begin{document}
 
@@ -27,6 +34,38 @@
    \end{enumerate}
 \end{itemize}
 
+\subsection{Python-ant setup help}
+Here is what I did; I hope it works for you. 
+\begin{enumerate}
+   \item Plug in your ant+ dongle and ssh or open command line on device and run. 
+      \begin{lstlisting}[frame=single,style=base]
+lsusb
+      \end{lstlisting}
+   \item You should find a device along the lines of \texttt{Dynastream Innovations, Inc. Mini stick Suunto}. Take note of the vendor ID and product ID. They are probably \texttt{0fcf} and \texttt{1008} respectively. 
+   \item We need a node to be created as a static way to refer to the USB device if it is plugged in. To do this, we create a rule using the following command, but be sure you have the ant+ stick removed. 
+   \begin{lstlisting}[frame=single,style=base]
+sudo vi /etc/udev/rules.d/garmin-ant2.rules
+   \end{lstlisting}
+   Copy and paste this stuff to the file but change the red stuff if your vendor ID and product ID are different.
+   \begin{lstlisting}[frame=single,style=base]
+SUBSYSTEM=="usb", ATTRS{idVendor}=="@0fcf@", ATTRS{idProduct}=="@1008@", RUN+="/sbin/modprobe usbserial vendor=@0x0fcf@ product=@0x1008@", MODE="0666", OWNER="pi", GROUP="root"
+   \end{lstlisting}
+   \item Plug the movestick back in and check \texttt{/dev} for \texttt{ttyUSB0}.
+   \item Next are some dependencies and random stuff you need. 
+   \begin{lstlisting}[frame=single,style=base]
+git clone https://github.com/baderj/python-ant.git
+sudo apt-get install -y python-setuptools
+cd python-ant/
+sudo python setup.py install
+   \end{lstlisting}
+   \item To test that everything is working. Look in \texttt{demos/ant.core} and run 
+   \begin{lstlisting}[frame=single,style=base]
+python 04-processevents.py 
+   \end{lstlisting}
+
+
+\end{enumerate}
+      
 
 \section{Features}
 \begin{itemize}
